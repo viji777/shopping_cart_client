@@ -12,7 +12,7 @@ function App() {
   const [totalCarts, setTotalCarts] = useState(1);
 
   const fetchCartsData = () => {
-    axios.get('http://localhost:5000/carts')
+    axios.get('https://shopping-cart-api-iota.vercel.app/carts')
       .then(response => {
         const cartsData = response.data.carts;
         console.log(response)
@@ -59,7 +59,7 @@ function App() {
           return cartItem;
         }).filter(cartItem => cartItem.quantity > 0);
 
-        axios.put(`http://localhost:5000/carts/${cartNumber}`, { products: updatedCarts })
+        axios.put(`https://shopping-cart-api-iota.vercel.app/carts/${cartNumber}`, { products: updatedCarts })
           .then(response => {
             console.log("Cart updated successfully:", response.data);
             fetchCartsData();
